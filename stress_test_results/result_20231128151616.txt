@@ -1,0 +1,21 @@
+Starting stress tests...
+Monitoring under stress level: CPU=20%, MEM=1G, IO=1
+Results for CPU=20%, MEM=1G, IO=1:
+# started on Tue Nov 28 15:16:44 2023
+
+
+ Performance counter stats for process id '10455':
+
+             41.12 msec task-clock                       #    0.001 CPUs utilized             
+               299      context-switches                 #    7.271 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+                 0      page-faults                      #    0.000 /sec                      
+   <not supported>      cycles                                                                
+   <not supported>      instructions                                                          
+   <not supported>      branches                                                              
+   <not supported>      branch-misses                                                         
+
+      30.000804386 seconds time elapsed
+
+-------------------------------------------
+Stress tests completed.
