@@ -1,7 +1,0 @@
-Starting stress tests...
-Monitoring under stress level: CPU=20%, MEM=1G, IO=1
-Results for CPU=20%, MEM=1G, IO=1:
-# started on Tue Nov 28 14:37:13 2023
-
--------------------------------------------
-Stress tests completed.

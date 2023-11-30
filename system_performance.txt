@@ -1,0 +1,14 @@
+# started on Thu Nov 30 21:51:39 2023
+
+40003.27,msec,cpu-clock,40003217273,100.00,2.000,CPUs utilized
+157927,,context-switches,40003212783,100.00,3.948,K/sec
+495,,cpu-migrations,40003209599,100.00,12.374,/sec
+13002,,page-faults,40003206070,100.00,325.023,/sec
+128015050667,,cycles,26669976749,66.00,3.200,GHz
+86520572970,,instructions,33329319951,83.00,0.68,insn per cycle
+14763212673,,branches,33329432177,83.00,369.050,M/sec
+297724107,,branch-misses,33343459204,83.00,2.02,of all branches
+22562020787,,L1-dcache-loads,33333467464,83.00,564.004,M/sec
+2666878721,,L1-dcache-load-misses,33336303035,83.00,11.82,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,

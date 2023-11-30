@@ -1,16 +1,4 @@
-# started on Tue Nov 28 15:24:23 2023
+# started on Thu Nov 30 21:51:19 2023
 
-
- Performance counter stats for process id '10455':
-
-             40.52 msec task-clock                       #    0.001 CPUs utilized             
-               301      context-switches                 #    7.428 K/sec                     
-                 0      cpu-migrations                   #    0.000 /sec                      
-                 0      page-faults                      #    0.000 /sec                      
-   <not supported>      cycles                                                                
-   <not supported>      instructions                                                          
-   <not supported>      branches                                                              
-   <not supported>      branch-misses                                                         
-
-      30.003588047 seconds time elapsed
-
+23022892888,,cycles,8364819279,100.00,,
+10484004978,,instructions,8364819279,100.00,0.46,insn per cycle
