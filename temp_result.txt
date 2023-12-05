@@ -1,4 +1,0 @@
-# started on Thu Nov 30 21:51:19 2023
-
-23022892888,,cycles,8364819279,100.00,,
-10484004978,,instructions,8364819279,100.00,0.46,insn per cycle
