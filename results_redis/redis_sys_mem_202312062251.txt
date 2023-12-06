@@ -1,0 +1,350 @@
+# started on Wed Dec  6 22:52:02 2023
+
+16014.43,msec,cpu-clock,16014283139,100.00,4.001,CPUs utilized
+24119,,context-switches,16014263811,100.00,1.506,K/sec
+270,,cpu-migrations,16014252711,100.00,16.860,/sec
+18726,,page-faults,16014243287,100.00,1.169,K/sec
+18749291414,,cycles,10673202189,66.00,1.171,GHz
+9632146736,,instructions,13369841788,83.00,0.51,insn per cycle
+1623670238,,branches,13376353160,83.00,101.388,M/sec
+45275454,,branch-misses,13345049850,83.00,2.79,of all branches
+2469791949,,L1-dcache-loads,13351385913,83.00,154.223,M/sec
+328980977,,L1-dcache-load-misses,13307639584,83.00,13.32,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:52:36 2023
+
+16026.63,msec,cpu-clock,16026506722,100.00,4.003,CPUs utilized
+15889,,context-switches,16026494373,100.00,991.413,/sec
+57,,cpu-migrations,16026486222,100.00,3.557,/sec
+6424,,page-faults,16026478659,100.00,400.833,/sec
+17422360412,,cycles,10694570929,66.00,1.087,GHz
+11632654253,,instructions,13365496911,83.00,0.67,insn per cycle
+1998244194,,branches,13357198881,83.00,124.683,M/sec
+42652439,,branch-misses,13335020324,83.00,2.13,of all branches
+3057036593,,L1-dcache-loads,13382561843,83.00,190.747,M/sec
+363139801,,L1-dcache-load-misses,13334030688,83.00,11.88,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:53:07 2023
+
+16011.54,msec,cpu-clock,16011434422,100.00,4.000,CPUs utilized
+19288,,context-switches,16011426166,100.00,1.205,K/sec
+32,,cpu-migrations,16011420698,100.00,1.999,/sec
+11518,,page-faults,16011415057,100.00,719.356,/sec
+20282790540,,cycles,10666520592,66.00,1.267,GHz
+13855212513,,instructions,13327598848,83.00,0.68,insn per cycle
+2364450539,,branches,13340580900,83.00,147.672,M/sec
+51130351,,branch-misses,13344244096,83.00,2.16,of all branches
+3636997705,,L1-dcache-loads,13352026753,83.00,227.149,M/sec
+424738608,,L1-dcache-load-misses,13340954354,83.00,11.68,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:53:39 2023
+
+16014.45,msec,cpu-clock,16014338981,100.00,4.001,CPUs utilized
+18700,,context-switches,16014321926,100.00,1.168,K/sec
+60,,cpu-migrations,16014314561,100.00,3.747,/sec
+8033,,page-faults,16014308628,100.00,501.609,/sec
+19986384616,,cycles,10670588895,66.00,1.248,GHz
+13395983208,,instructions,13342074572,83.00,0.67,insn per cycle
+2293176392,,branches,13344549034,83.00,143.194,M/sec
+48209626,,branch-misses,13365541550,83.00,2.10,of all branches
+3519871226,,L1-dcache-loads,13350580522,83.00,219.793,M/sec
+421680464,,L1-dcache-load-misses,13324013853,83.00,11.98,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:54:14 2023
+
+16037.85,msec,cpu-clock,16037735128,100.00,4.006,CPUs utilized
+19639,,context-switches,16037713739,100.00,1.225,K/sec
+62,,cpu-migrations,16037705360,100.00,3.866,/sec
+7988,,page-faults,16037697407,100.00,498.072,/sec
+21628093916,,cycles,10676952710,66.00,1.349,GHz
+14923393436,,instructions,13348063425,83.00,0.69,insn per cycle
+2545192020,,branches,13356469362,83.00,158.699,M/sec
+52939301,,branch-misses,13371200423,83.00,2.08,of all branches
+3907288019,,L1-dcache-loads,13361788698,83.00,243.629,M/sec
+452590109,,L1-dcache-load-misses,13382514391,83.00,11.58,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:54:44 2023
+
+16018.23,msec,cpu-clock,16018095336,100.00,4.002,CPUs utilized
+15849,,context-switches,16018072610,100.00,989.435,/sec
+51,,cpu-migrations,16018062234,100.00,3.184,/sec
+6609,,page-faults,16018054404,100.00,412.592,/sec
+16833136922,,cycles,10631459262,66.00,1.051,GHz
+10773547119,,instructions,13350576382,83.00,0.64,insn per cycle
+1872914319,,branches,13303145608,83.00,116.924,M/sec
+40732646,,branch-misses,13373756205,83.00,2.17,of all branches
+2847526156,,L1-dcache-loads,13385495327,83.00,177.768,M/sec
+347102621,,L1-dcache-load-misses,13376946287,83.00,12.19,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:55:20 2023
+
+16034.28,msec,cpu-clock,16034175646,100.00,4.005,CPUs utilized
+18945,,context-switches,16034163274,100.00,1.182,K/sec
+52,,cpu-migrations,16034155665,100.00,3.243,/sec
+10935,,page-faults,16034147325,100.00,681.976,/sec
+20083754986,,cycles,10682658616,66.00,1.253,GHz
+13485833610,,instructions,13354281470,83.00,0.67,insn per cycle
+2280914666,,branches,13359960216,83.00,142.252,M/sec
+49597686,,branch-misses,13376755793,83.00,2.17,of all branches
+3544740418,,L1-dcache-loads,13361119809,83.00,221.073,M/sec
+417303227,,L1-dcache-load-misses,13355234655,83.00,11.77,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:55:52 2023
+
+16018.48,msec,cpu-clock,16018320793,100.00,4.001,CPUs utilized
+16578,,context-switches,16018302916,100.00,1.035,K/sec
+91,,cpu-migrations,16018314175,100.00,5.681,/sec
+8468,,page-faults,16018321870,100.00,528.639,/sec
+21156863701,,cycles,10676442630,66.00,1.321,GHz
+14370595141,,instructions,13356987586,83.00,0.68,insn per cycle
+2453951910,,branches,13339895076,83.00,153.195,M/sec
+51412155,,branch-misses,13338114764,83.00,2.10,of all branches
+3766857762,,L1-dcache-loads,13361300498,83.00,235.157,M/sec
+445729934,,L1-dcache-load-misses,13355596619,83.00,11.83,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:56:23 2023
+
+16013.42,msec,cpu-clock,16013253940,100.00,4.001,CPUs utilized
+19006,,context-switches,16013239074,100.00,1.187,K/sec
+80,,cpu-migrations,16013230176,100.00,4.996,/sec
+8479,,page-faults,16013221753,100.00,529.493,/sec
+20160111550,,cycles,10670453566,66.00,1.259,GHz
+14021077068,,instructions,13327767997,83.00,0.70,insn per cycle
+2392188972,,branches,13337361465,83.00,149.387,M/sec
+49758618,,branch-misses,13340709007,83.00,2.08,of all branches
+3685308711,,L1-dcache-loads,13350473590,83.00,230.139,M/sec
+428266514,,L1-dcache-load-misses,13353154642,83.00,11.62,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:56:54 2023
+
+16012.62,msec,cpu-clock,16012506225,100.00,4.000,CPUs utilized
+14753,,context-switches,16012496926,100.00,921.336,/sec
+80,,cpu-migrations,16012491353,100.00,4.996,/sec
+8128,,page-faults,16012467179,100.00,507.600,/sec
+18407934765,,cycles,10639695622,66.00,1.150,GHz
+12117226310,,instructions,13336683367,83.00,0.66,insn per cycle
+2072863837,,branches,13350461013,83.00,129.452,M/sec
+45194156,,branch-misses,13354148324,83.00,2.18,of all branches
+3206107738,,L1-dcache-loads,13346488119,83.00,200.224,M/sec
+381120464,,L1-dcache-load-misses,13357630513,83.00,11.89,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:57:25 2023
+
+16035.26,msec,cpu-clock,16035132130,100.00,4.006,CPUs utilized
+17215,,context-switches,16035121020,100.00,1.074,K/sec
+120,,cpu-migrations,16035114549,100.00,7.484,/sec
+8538,,page-faults,16035106783,100.00,532.452,/sec
+21379172775,,cycles,10695498810,66.00,1.333,GHz
+15437574821,,instructions,13376480578,83.00,0.72,insn per cycle
+2635476593,,branches,13355239504,83.00,164.355,M/sec
+53969514,,branch-misses,13361095271,83.00,2.05,of all branches
+4054831891,,L1-dcache-loads,13387154506,83.00,252.870,M/sec
+458427570,,L1-dcache-load-misses,13340733530,83.00,11.31,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:57:55 2023
+
+16026.71,msec,cpu-clock,16026589156,100.00,4.004,CPUs utilized
+17604,,context-switches,16026568499,100.00,1.098,K/sec
+76,,cpu-migrations,16026560440,100.00,4.742,/sec
+8687,,page-faults,16026552563,100.00,542.033,/sec
+21602872737,,cycles,10687537623,66.00,1.348,GHz
+15563807858,,instructions,13351204512,83.00,0.72,insn per cycle
+2666878387,,branches,13342957549,83.00,166.402,M/sec
+55279102,,branch-misses,13365990951,83.00,2.07,of all branches
+4091188184,,L1-dcache-loads,13365236196,83.00,255.273,M/sec
+455460252,,L1-dcache-load-misses,13342501105,83.00,11.13,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:58:25 2023
+
+16057.02,msec,cpu-clock,16056800760,100.00,4.001,CPUs utilized
+31885,,context-switches,16056780581,100.00,1.986,K/sec
+243,,cpu-migrations,16056677006,100.00,15.134,/sec
+34041,,page-faults,16056664125,100.00,2.120,K/sec
+21188023492,,cycles,10725631618,66.00,1.320,GHz
+14062350894,,instructions,13394121505,83.00,0.66,insn per cycle
+2612448345,,branches,13367884861,83.00,162.698,M/sec
+56563773,,branch-misses,13372976119,83.00,2.17,of all branches
+3534789719,,L1-dcache-loads,13362216527,83.00,220.140,M/sec
+379635884,,L1-dcache-load-misses,13392291100,83.00,10.74,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:58:57 2023
+
+16022.43,msec,cpu-clock,16022299262,100.00,4.002,CPUs utilized
+18300,,context-switches,16022285194,100.00,1.142,K/sec
+98,,cpu-migrations,16022276677,100.00,6.116,/sec
+8341,,page-faults,16022269149,100.00,520.583,/sec
+19026622348,,cycles,10628731902,66.00,1.187,GHz
+12766241294,,instructions,13347606919,83.00,0.67,insn per cycle
+2188323635,,branches,13342677549,83.00,136.579,M/sec
+46908318,,branch-misses,13386150407,83.00,2.14,of all branches
+3352022359,,L1-dcache-loads,13370014599,83.00,209.208,M/sec
+395971468,,L1-dcache-load-misses,13359288768,83.00,11.81,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:59:29 2023
+
+16044.45,msec,cpu-clock,16044319385,100.00,4.008,CPUs utilized
+18707,,context-switches,16044300605,100.00,1.166,K/sec
+79,,cpu-migrations,16044294016,100.00,4.924,/sec
+8164,,page-faults,16044287751,100.00,508.836,/sec
+25390578525,,cycles,10701954982,66.00,1.583,GHz
+17959502457,,instructions,13366948819,83.00,0.71,insn per cycle
+3074716490,,branches,13373275930,83.00,191.637,M/sec
+61901854,,branch-misses,13378844098,83.00,2.01,of all branches
+4705034584,,L1-dcache-loads,13357660959,83.00,293.250,M/sec
+539318763,,L1-dcache-load-misses,13364296838,83.00,11.46,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 22:59:59 2023
+
+16050.13,msec,cpu-clock,16049964394,100.00,4.004,CPUs utilized
+17216,,context-switches,16049913664,100.00,1.073,K/sec
+79,,cpu-migrations,16049905227,100.00,4.922,/sec
+8593,,page-faults,16049893727,100.00,535.385,/sec
+23174700053,,cycles,10705386453,66.00,1.444,GHz
+16379202799,,instructions,13381010858,83.00,0.71,insn per cycle
+2801612620,,branches,13368283341,83.00,174.554,M/sec
+57157993,,branch-misses,13384069185,83.00,2.04,of all branches
+4324764112,,L1-dcache-loads,13365876639,83.00,269.453,M/sec
+489956063,,L1-dcache-load-misses,13373969546,83.00,11.33,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:00:31 2023
+
+16018.70,msec,cpu-clock,16018565461,100.00,4.001,CPUs utilized
+16558,,context-switches,16018547485,100.00,1.034,K/sec
+69,,cpu-migrations,16018537413,100.00,4.307,/sec
+6429,,page-faults,16018505823,100.00,401.343,/sec
+17365634943,,cycles,10667007698,66.00,1.084,GHz
+11371741359,,instructions,13342601798,83.00,0.65,insn per cycle
+1940385614,,branches,13332895128,83.00,121.132,M/sec
+41827470,,branch-misses,13360519692,83.00,2.16,of all branches
+2982971477,,L1-dcache-loads,13357148017,83.00,186.218,M/sec
+351693552,,L1-dcache-load-misses,13353761004,83.00,11.79,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:01:02 2023
+
+16013.12,msec,cpu-clock,16012936469,100.00,4.001,CPUs utilized
+16399,,context-switches,16012920071,100.00,1.024,K/sec
+52,,cpu-migrations,16012908188,100.00,3.247,/sec
+7830,,page-faults,16012897162,100.00,488.974,/sec
+18694323547,,cycles,10678604353,66.00,1.167,GHz
+12673651565,,instructions,13357878668,83.00,0.68,insn per cycle
+2174157465,,branches,13313561573,83.00,135.773,M/sec
+46069601,,branch-misses,13357309053,83.00,2.12,of all branches
+3327366235,,L1-dcache-loads,13354418716,83.00,207.790,M/sec
+391316906,,L1-dcache-load-misses,13345636276,83.00,11.76,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:01:33 2023
+
+16017.33,msec,cpu-clock,16017142579,100.00,4.001,CPUs utilized
+17396,,context-switches,16017125017,100.00,1.086,K/sec
+70,,cpu-migrations,16017111022,100.00,4.370,/sec
+7923,,page-faults,16017117993,100.00,494.652,/sec
+19324896217,,cycles,10671569168,66.00,1.206,GHz
+13378302026,,instructions,13347036493,83.00,0.69,insn per cycle
+2286275909,,branches,13324947701,83.00,142.738,M/sec
+47816112,,branch-misses,13370887253,83.00,2.09,of all branches
+3522739575,,L1-dcache-loads,13349736597,83.00,219.933,M/sec
+405826829,,L1-dcache-load-misses,13349553770,83.00,11.52,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:02:04 2023
+
+16034.98,msec,cpu-clock,16034867304,100.00,4.006,CPUs utilized
+15828,,context-switches,16034843301,100.00,987.092,/sec
+76,,cpu-migrations,16034817894,100.00,4.740,/sec
+6915,,page-faults,16034811309,100.00,431.245,/sec
+18265577463,,cycles,10682127619,66.00,1.139,GHz
+12030248258,,instructions,13372478491,83.00,0.66,insn per cycle
+2059737583,,branches,13365808027,83.00,128.453,M/sec
+44121530,,branch-misses,13353450775,83.00,2.14,of all branches
+3165865203,,L1-dcache-loads,13369141193,83.00,197.435,M/sec
+380510633,,L1-dcache-load-misses,13366939813,83.00,12.02,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:02:40 2023
+
+16042.79,msec,cpu-clock,16042621264,100.00,4.007,CPUs utilized
+17490,,context-switches,16042602251,100.00,1.090,K/sec
+67,,cpu-migrations,16042590102,100.00,4.176,/sec
+10118,,page-faults,16042578112,100.00,630.688,/sec
+17222296783,,cycles,10692326738,66.00,1.074,GHz
+11059140141,,instructions,13384854119,83.00,0.64,insn per cycle
+1891062787,,branches,13354244853,83.00,117.876,M/sec
+42455386,,branch-misses,13378725742,83.00,2.25,of all branches
+2903020742,,L1-dcache-loads,13375250370,83.00,180.955,M/sec
+354450286,,L1-dcache-load-misses,13366940278,83.00,12.21,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:03:12 2023
+
+16021.95,msec,cpu-clock,16021871106,100.00,4.001,CPUs utilized
+18113,,context-switches,16021810759,100.00,1.131,K/sec
+70,,cpu-migrations,16021798796,100.00,4.369,/sec
+8146,,page-faults,16021790319,100.00,508.428,/sec
+20322513418,,cycles,10664645375,66.00,1.268,GHz
+13579959747,,instructions,13350663843,83.00,0.67,insn per cycle
+2322852393,,branches,13361113073,83.00,144.979,M/sec
+48941120,,branch-misses,13340715772,83.00,2.11,of all branches
+3588879446,,L1-dcache-loads,13364225573,83.00,223.998,M/sec
+427308392,,L1-dcache-load-misses,13352938659,83.00,11.91,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:03:43 2023
+
+16020.62,msec,cpu-clock,16020497352,100.00,4.001,CPUs utilized
+31774,,context-switches,16020487861,100.00,1.983,K/sec
+87,,cpu-migrations,16020481143,100.00,5.431,/sec
+19408,,page-faults,16020473933,100.00,1.211,K/sec
+21215246783,,cycles,10663380475,66.00,1.324,GHz
+13188726678,,instructions,13336874431,83.00,0.62,insn per cycle
+2258860899,,branches,13354021125,83.00,140.997,M/sec
+48964317,,branch-misses,13351704505,83.00,2.17,of all branches
+3485491820,,L1-dcache-loads,13361598800,83.00,217.563,M/sec
+429648367,,L1-dcache-load-misses,13349883598,83.00,12.33,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:04:14 2023
+
+16019.58,msec,cpu-clock,16019472850,100.00,4.000,CPUs utilized
+19278,,context-switches,16019453188,100.00,1.203,K/sec
+83,,cpu-migrations,16019447832,100.00,5.181,/sec
+9261,,page-faults,16019442469,100.00,578.105,/sec
+21686964279,,cycles,10671300886,66.00,1.354,GHz
+14174410742,,instructions,13389671526,83.00,0.65,insn per cycle
+2426085027,,branches,13353163589,83.00,151.445,M/sec
+53028848,,branch-misses,13379790651,83.00,2.19,of all branches
+3720016285,,L1-dcache-loads,13369286839,83.00,232.217,M/sec
+454395364,,L1-dcache-load-misses,13302590207,83.00,12.21,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,
+# started on Wed Dec  6 23:04:50 2023
+
+16043.54,msec,cpu-clock,16043393189,100.00,4.002,CPUs utilized
+22790,,context-switches,16043334811,100.00,1.421,K/sec
+98,,cpu-migrations,16043339458,100.00,6.108,/sec
+12724,,page-faults,16043331710,100.00,793.092,/sec
+16397699350,,cycles,10689066993,66.00,1.022,GHz
+9613549828,,instructions,13355549582,83.00,0.59,insn per cycle
+1648376347,,branches,13348367986,83.00,102.744,M/sec
+40123710,,branch-misses,13390010447,83.00,2.43,of all branches
+2527363026,,L1-dcache-loads,13393696722,83.00,157.531,M/sec
+324419473,,L1-dcache-load-misses,13350062996,83.00,12.84,of all L1-dcache accesses
+<not supported>,,LLC-loads,0,100.00,,
+<not supported>,,LLC-load-misses,0,100.00,,

@@ -1,0 +1,100 @@
+# started on Wed Dec  6 22:52:02 2023
+
+6662360875,,cycles,26675294,0.00,,
+2986352204,,instructions,313546121,10.00,0.45,insn per cycle
+# started on Wed Dec  6 22:52:36 2023
+
+7206110005,,cycles,606410,0.00,,
+4756670376,,instructions,283532961,8.00,0.66,insn per cycle
+# started on Wed Dec  6 22:53:07 2023
+
+10385669521,,cycles,20445208,0.00,,
+5938201835,,instructions,316083749,8.00,0.57,insn per cycle
+# started on Wed Dec  6 22:53:39 2023
+
+9787770582,,cycles,28852055,0.00,,
+6012149431,,instructions,289657314,8.00,0.61,insn per cycle
+# started on Wed Dec  6 22:54:14 2023
+
+10089248416,,cycles,3534724,0.00,,
+6163015811,,instructions,298663925,8.00,0.61,insn per cycle
+# started on Wed Dec  6 22:54:44 2023
+
+8821812497,,cycles,5483422,0.00,,
+4925702610,,instructions,273670802,7.00,0.56,insn per cycle
+# started on Wed Dec  6 22:55:20 2023
+
+6954898625,,cycles,28251886,0.00,,
+5477921686,,instructions,294575559,8.00,0.79,insn per cycle
+# started on Wed Dec  6 22:55:52 2023
+
+6418159512,,cycles,10036344,0.00,,
+6012168937,,instructions,374275872,10.00,0.94,insn per cycle
+# started on Wed Dec  6 22:56:23 2023
+
+9508922334,,cycles,6192153,0.00,,
+5989344336,,instructions,310620228,8.00,0.63,insn per cycle
+# started on Wed Dec  6 22:56:54 2023
+
+8165981273,,cycles,6779647,0.00,,
+5056834777,,instructions,336424715,9.00,0.62,insn per cycle
+# started on Wed Dec  6 22:57:25 2023
+
+9878782595,,cycles,14430845,0.00,,
+6811918373,,instructions,267971129,7.00,0.69,insn per cycle
+# started on Wed Dec  6 22:57:55 2023
+
+10208146457,,cycles,7555528,0.00,,
+6424647717,,instructions,270848617,7.00,0.63,insn per cycle
+# started on Wed Dec  6 22:58:25 2023
+
+7575567608,,cycles,4803488,0.00,,
+3686951450,,instructions,286565843,9.00,0.49,insn per cycle
+# started on Wed Dec  6 22:58:58 2023
+
+8662690660,,cycles,10902438,0.00,,
+5354968800,,instructions,329086495,9.00,0.62,insn per cycle
+# started on Wed Dec  6 22:59:29 2023
+
+8322269111,,cycles,2589195,0.00,,
+7779790047,,instructions,301576233,8.00,0.93,insn per cycle
+# started on Wed Dec  6 22:59:59 2023
+
+<not counted>,,cycles,0,0.00,,
+7111905957,,instructions,321669084,8.00,,
+# started on Wed Dec  6 23:00:31 2023
+
+8255625623,,cycles,1254800,0.00,,
+4841085967,,instructions,330149848,9.00,0.59,insn per cycle
+# started on Wed Dec  6 23:01:02 2023
+
+8316184891,,cycles,18400446,0.00,,
+5637806433,,instructions,325453996,9.00,0.68,insn per cycle
+# started on Wed Dec  6 23:01:33 2023
+
+6610733942,,cycles,29788069,0.00,,
+5495247012,,instructions,267924359,7.00,0.83,insn per cycle
+# started on Wed Dec  6 23:02:04 2023
+
+8854715648,,cycles,1041147,0.00,,
+5130376223,,instructions,304467391,8.00,0.58,insn per cycle
+# started on Wed Dec  6 23:02:40 2023
+
+7456517022,,cycles,11869744,0.00,,
+4468868883,,instructions,316909578,9.00,0.60,insn per cycle
+# started on Wed Dec  6 23:03:12 2023
+
+6758715852,,cycles,9479487,0.00,,
+5609008016,,instructions,308408909,8.00,0.83,insn per cycle
+# started on Wed Dec  6 23:03:43 2023
+
+6154699782,,cycles,3603489,0.00,,
+5498293809,,instructions,305511380,9.00,0.89,insn per cycle
+# started on Wed Dec  6 23:04:14 2023
+
+3719564810,,cycles,9835421,0.00,,
+6257126343,,instructions,275811751,7.00,1.68,insn per cycle
+# started on Wed Dec  6 23:04:50 2023
+
+<not counted>,,cycles,0,0.00,,
+3734470883,,instructions,312398883,9.00,,
