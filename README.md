@@ -4,7 +4,9 @@
 
 
 ### 常用命令
-free -g -h 
+free -g -h
+
+df -h
 
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' redis-server
 
@@ -22,3 +24,7 @@ stress-ng --cpu $cpu --vm 1 --vm-bytes $mem --io $io --timeout $benchmark_durati
 性能问题：当虚拟机配置的内存超过宿主机的物理内存时，多出来的部分将使用交换空间（swap space），即硬盘空间作为虚拟内存。硬盘的读写速度远低于物理内存，因此这会严重影响虚拟机的性能。
 
 & 表示后台运行
+
+如果在使用 redis-benchmark 时不指定 -d 选项，默认的数据大小是 3 字节。这意味着每次 SET 操作存储的数据将默认为 3 字节大小。这个默认值很小，主要是为了快速测试 Redis 的响应时间和吞吐量，而不是为了压力测试或评估内存使用。
+
+因此，如果你想测试 Redis 在处理更大数据量时的性能，建议使用 -d 选项来指定一个较大的数据大小。例如，使用 -d 1000 来测试每个键存储 1KB 数据的场景。这样的测试更能反映 Redis 在实际应用中的表现，特别是对于内存使用和处理大数据负载的能力。
