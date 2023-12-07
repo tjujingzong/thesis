@@ -1,0 +1,124 @@
+# started on Thu Dec  7 22:11:24 2023
+
+1534798918,,cycles,180896,0.00,,
+1468300382,,instructions,63229045,8.00,0.96,insn per cycle
+# started on Thu Dec  7 22:11:48 2023
+
+2216256441,,cycles,20743393,2.00,,
+1533302904,,instructions,77395475,10.00,0.69,insn per cycle
+# started on Thu Dec  7 22:12:11 2023
+
+2524535636,,cycles,5494170,0.00,,
+1516030169,,instructions,87752556,10.00,0.60,insn per cycle
+# started on Thu Dec  7 22:12:34 2023
+
+2421514991,,cycles,27546691,4.00,,
+1556188874,,instructions,76892849,11.00,0.64,insn per cycle
+# started on Thu Dec  7 22:12:57 2023
+
+1782916126,,cycles,1982894,0.00,,
+1445469099,,instructions,55680435,8.00,0.81,insn per cycle
+# started on Thu Dec  7 22:13:20 2023
+
+1576455832,,cycles,171719,0.00,,
+1506063226,,instructions,68654806,10.00,0.96,insn per cycle
+# started on Thu Dec  7 22:13:43 2023
+
+1717650862,,cycles,4295172,0.00,,
+1497432378,,instructions,55696431,7.00,0.87,insn per cycle
+# started on Thu Dec  7 22:14:09 2023
+
+2045069301,,cycles,471330,0.00,,
+1560275651,,instructions,61152487,7.00,0.76,insn per cycle
+# started on Thu Dec  7 22:14:33 2023
+
+2434620953,,cycles,116071,0.00,,
+1631281800,,instructions,60699449,7.00,0.67,insn per cycle
+# started on Thu Dec  7 22:14:58 2023
+
+<not counted>,,cycles,0,0.00,,
+1455543276,,instructions,47982604,7.00,,
+# started on Thu Dec  7 22:15:23 2023
+
+2295624954,,cycles,6548850,0.00,,
+1516334188,,instructions,77158762,11.00,0.66,insn per cycle
+# started on Thu Dec  7 22:15:46 2023
+
+<not counted>,,cycles,0,0.00,,
+1828634152,,instructions,78395247,6.00,,
+# started on Thu Dec  7 22:16:09 2023
+
+2950447539,,cycles,24130374,2.00,,
+1540108173,,instructions,127334371,12.00,0.52,insn per cycle
+# started on Thu Dec  7 22:16:33 2023
+
+1969025584,,cycles,1020251,0.00,,
+1396211242,,instructions,80973335,11.00,0.71,insn per cycle
+# started on Thu Dec  7 22:16:57 2023
+
+<not counted>,,cycles,0,0.00,,
+1447281125,,instructions,71307879,8.00,,
+# started on Thu Dec  7 22:17:22 2023
+
+<not counted>,,cycles,0,0.00,,
+1485254992,,instructions,61158980,8.00,,
+# started on Thu Dec  7 22:17:45 2023
+
+<not counted>,,cycles,0,0.00,,
+1556309547,,instructions,45740109,5.00,,
+# started on Thu Dec  7 22:18:10 2023
+
+<not counted>,,cycles,0,0.00,,
+1483709351,,instructions,89533863,9.00,,
+# started on Thu Dec  7 22:18:33 2023
+
+3376700897,,cycles,33176979,3.00,,
+1868099659,,instructions,93427799,10.00,0.55,insn per cycle
+# started on Thu Dec  7 22:18:56 2023
+
+2323186850,,cycles,129721,0.00,,
+1449780231,,instructions,50166795,6.00,0.62,insn per cycle
+# started on Thu Dec  7 22:19:19 2023
+
+<not counted>,,cycles,0,0.00,,
+1469109651,,instructions,62387696,8.00,,
+# started on Thu Dec  7 22:19:47 2023
+
+<not counted>,,cycles,0,0.00,,
+1565129849,,instructions,55262947,7.00,,
+# started on Thu Dec  7 22:20:10 2023
+
+2415585921,,cycles,771453,0.00,,
+1504055904,,instructions,55590558,7.00,0.62,insn per cycle
+# started on Thu Dec  7 22:20:33 2023
+
+<not counted>,,cycles,0,0.00,,
+1488679714,,instructions,72791574,9.00,,
+# started on Thu Dec  7 22:20:57 2023
+
+<not counted>,,cycles,0,0.00,,
+1505158027,,instructions,56971968,7.00,,
+# started on Thu Dec  7 22:21:20 2023
+
+<not counted>,,cycles,0,0.00,,
+1423282754,,instructions,81472044,8.00,,
+# started on Thu Dec  7 22:21:43 2023
+
+<not counted>,,cycles,0,0.00,,
+1514151778,,instructions,156152412,8.00,,
+# started on Thu Dec  7 22:22:12 2023
+
+<not counted>,,cycles,0,0.00,,
+1179735288,,instructions,171101517,9.00,,
+# started on Thu Dec  7 22:22:41 2023
+
+2892323564,,cycles,4981803,0.00,,
+1555706768,,instructions,107292118,9.00,0.54,insn per cycle
+# started on Thu Dec  7 22:23:10 2023
+
+3056016342,,cycles,7394356,0.00,,
+1072607352,,instructions,141234798,9.00,0.35,insn per cycle
+# started on Thu Dec  7 22:23:39 2023
+
+2868339716,,cycles,5817229,0.00,,
+1557883784,,instructions,103501549,8.00,0.54,insn per cycle

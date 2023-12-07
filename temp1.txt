@@ -1,4 +1,4 @@
-# started on Wed Dec  6 23:04:50 2023
+# started on Thu Dec  7 22:23:39 2023
 
-<not counted>,,cycles,0,0.00,,
-3734470883,,instructions,312398883,9.00,,
+2868339716,,cycles,5817229,0.00,,
+1557883784,,instructions,103501549,8.00,0.54,insn per cycle
