@@ -10,7 +10,7 @@ def read_file(file_name):
     return lines
 
 
-lines = read_file('../results_redis/redis_throughput_mem_202312062251.txt')
+lines = read_file('../results_redis/redis_throughput_mem_202312072211.txt')
 content = ''
 for line in lines:
     content += line
@@ -29,6 +29,11 @@ for i in range(len(result)):
 
 print(avg_throughout)
 
+import pandas as pd
+
+df = pd.DataFrame(avg_throughout)
+# 保存cpi 为csv文件
+df.to_csv("./data_result/redis_avg_throughout_mem.csv", index=False, header=False)
 # 绘制图像
 plt.plot(avg_throughout)
 plt.xlabel('memory stress(MB)')
