@@ -10,6 +10,7 @@ df -h
 
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' redis-server
 
+docker exec -it "redis-server" timeout 10 redis-cli --latency
 
 redis-benchmark -h 172.17.0.2 -p 6379 -t get -c 50 -n 100000
 
@@ -17,6 +18,19 @@ redis-benchmark -h 172.17.0.2 -p 6379 -t set,get -c 50 -n 10000 -l| grep "reques
 
 
 stress-ng --cpu $cpu --vm 1 --vm-bytes $mem --io $io --timeout $benchmark_duration
+
+
+    # Start Redis benchmark in background and save its output
+    (
+        echo "start monitoring......"
+        # for i in {1..3}; do
+        #     $benchmark_cmd | grep "requests per second" >>$benchmark_result_file
+        # done
+        docker exec -i "redis-server" timeout $monitor_duration redis-cli --latency >"redis_latency_results.txt"
+    ) &
+
+    # Monitor Redis performance
+    # sudo perf stat -e cycles,instructions -x, -p $redis_pid -o temp1.txt sleep $monitor_duration &
 
 
 ### 备注
