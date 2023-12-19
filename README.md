@@ -32,6 +32,9 @@ stress-ng --cpu $cpu --vm 1 --vm-bytes $mem --io $io --timeout $benchmark_durati
     # Monitor Redis performance
     # sudo perf stat -e cycles,instructions -x, -p $redis_pid -o temp1.txt sleep $monitor_duration &
 
+sudo tune2fs -l /dev/sda3 | grep 'Block size'
+[sudo] ljz 的密码： 
+Block size:               4096
 
 ### 备注
 如果在 redis-benchmark 命令中省略了 -t 选项，redis-benchmark 将会运行所有默认的基准测试，而不是仅限于特定的操作（如 SET 或 GET）。这意味着它将对 Redis 支持的各种操作进行性能测试，包括但不限于 SET, GET, INCR, LPUSH, LPOP, SADD, SPOP, LPUSH (后接 LRANGE), 和 MSET（根据 Redis 版本，可能还包括其他操作）。

@@ -1,21 +1,23 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, AdaBoostRegressor
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 
 # Load data
-df = pd.read_csv('../data_analyse/data_result/all_data-2.csv')
+from sklearn.tree import DecisionTreeRegressor
+
+df = pd.read_csv('../data_analyse/data_result/all_data-3.csv')
 
 # Preprocess data
 
 # Split the data into features and target
 X = df.drop('avg latency', axis=1)
 column_names = X.columns
-scaler = StandardScaler()
+scaler = MinMaxScaler()
 X = scaler.fit_transform(X)
 y = df['avg latency']
 
@@ -42,15 +44,36 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     # r2_adjusted = 1 - (1 - r2) * (n - 1) / (n - p - 1)
     # print(f'Adjusted R-squared: {r2_adjusted}\n')
 
+    # 确定误差阈值（百分比）
+    error_threshold = 100  # 设定一个阈值，例如10%
+
+    # 计算每个点的误差（百分比）并记录大误差的点
+    large_errors = []
+    for i, (real, pred) in enumerate(zip(y_test, y_pred)):
+        if real != 0:  # 防止除以零
+            error = ((pred - real) / real) * 100
+            if error > error_threshold:
+                large_errors.append((i, real, pred, error))
+
+    # 输出大误差点的信息
+    if large_errors:
+        print(f'Large errors in model {model.__class__.__name__}:')
+        for idx, real, pred, error in large_errors:
+            print(f'Index: {idx}, Real: {real}, Predicted: {pred}, Error: {error}%')
+    else:
+        print(f'No large errors in model {model.__class__.__name__}')
+
 
 # List of models to train
 models = [
     LinearRegression(),
     Ridge(),
-    Lasso(),
+    SVR(),
+    DecisionTreeRegressor(),
     RandomForestRegressor(),
     GradientBoostingRegressor(),
-    SVR()
+    ExtraTreesRegressor(),
+    AdaBoostRegressor(base_estimator=DecisionTreeRegressor())
 ]
 
 # Train and evaluate each model
