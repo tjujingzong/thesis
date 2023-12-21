@@ -1,14 +1,14 @@
 #!/bin/bash
 
 memory_levels=()
-for ((mem = 6656; mem >= 0; mem -= 512)); do
+for ((mem = 7168; mem >= 5632; mem -= 256)); do
     memory_levels+=("${mem}M")
 done
-memory_levels+=("4k")
+# memory_levels+=("4k")
 # cpu_levels=(100)
 # io_levels=(100)
-cpu_levels=(90 70 50 30 10 0)
-io_levels=(50 40 30 20 10 1)
+cpu_levels=(50 30 10 0)
+io_levels=(30 20 10 1)
 
 benchmark_duration="200"
 monitor_duration="6" # 设置监控时长短于压力测试时长
