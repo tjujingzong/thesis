@@ -9,7 +9,7 @@ def read_file(file_name):
     return lines
 
 
-lines = read_file('../data_analyse/data_result/redis_sys.txt')
+lines = read_file('../results_redis/202312211754-redis_sys.txt')
 content = ''
 for i in range(1, len(lines)):
     content += lines[i]
@@ -60,4 +60,4 @@ L1_dcache_load_misses = re.findall(L1_dcache_load_misses_pattern, content)
 df['L1_dcache_load_misses(%)'] = L1_dcache_load_misses
 
 # 保存cpi 为csv文件
-df.to_csv("./data_result/redis_sys.csv", index=False)
+df.to_csv("./data_result/202312211754-redis_sys.csv", index=False)

@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def read_file(file_name):
     f = open(file_name, 'r')
     lines = f.readlines()
@@ -5,11 +8,11 @@ def read_file(file_name):
     return lines
 
 
-lines = read_file('../data_analyse/data_result/redis_vmstate.txt')
+lines = read_file('../results_redis/202312211754-redis_vmstate.txt')
 
 content = ''
 for i in range(1, len(lines)):
-    if i % 8 != 0 and i % 8 != 1:
+    if i % 8 != 0 and i % 8 != 1 and i % 8 != 2:
         content += lines[i]
 
 print(content)
@@ -35,7 +38,7 @@ for line in lines:
     count += 1
 
     # 每6行计算一次平均值
-    if count == 6:
+    if count == 5:
         # 计算平均值并格式化为逗号分隔的字符串
         avg_line = ','.join(f'{sum_val / count:.2f}' for sum_val in sums)
         averages.append(avg_line)
@@ -45,5 +48,21 @@ for line in lines:
         count = 0
 
 # 将平均值写入文件
-with open('../data_analyse/data_result/redis_vmstate.csv', 'w') as f:
+with open('../data_analyse/data_result/202312211406-redis_vmstate.csv', 'w') as f:
     f.write('\n'.join(averages))
+
+# Assuming the csv file has data in the same order as the vmstat command output
+
+# Adding units in parentheses
+column_names_with_units = [
+    'r (procs)', 'b (procs)', 'Swap (KB)', 'Free (KB)', 'Buffers (KB)', 'Cached (KB)',
+    'si (KB/s)', 'so (KB/s)', 'bi (blocks/s)', 'bo (blocks/s)',
+    'in (interrupts/s)', 'cs (context switches/s)',
+    'us (%)', 'sy (%)', 'id (%)', 'wa (%)', 'st (%)'
+]
+
+# Reading the CSV file
+df1 = pd.read_csv('../data_analyse/data_result/202312211406-redis_vmstate.csv', names=column_names_with_units)
+
+# 保存
+df1.to_csv('../data_analyse/data_result/202312211754-redis_vmstate.csv', index=False)
