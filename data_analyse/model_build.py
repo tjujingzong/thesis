@@ -1,5 +1,6 @@
+import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, learning_curve
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, AdaBoostRegressor
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -10,8 +11,8 @@ import matplotlib.pyplot as plt
 # Load data
 from sklearn.tree import DecisionTreeRegressor
 
-time = "all_data-3"
-df = pd.read_csv('../data_analyse/data_result/all_data-3.csv')
+time = "all_data.csv"
+df = pd.read_csv('../data_analyse/data_result/redis-tomcat.csv')
 
 # Preprocess data
 
@@ -34,7 +35,11 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     mse = mean_squared_error(y_test, y_pred)
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
-    model_performance[model.__class__.__name__] = r2
+    model_performance[model_names[model.__class__.__name__]] = {
+        'MSE': mse,
+        'MAE': mae,
+        'R2': r2
+    }
     print(f'Model: {model.__class__.__name__}')
     print(f'Mean Squared Error: {mse}')
     print(f'Mean Absolute Error: {mae}')
@@ -52,42 +57,29 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     filename = f'../data_analyse/pic/{time}_{model.__class__.__name__}.png'
     plt.savefig(filename)
 
-    # n = X_test.shape[0]  # 样本数量
-    # p = X_test.shape[1]  # 自变量的数量
-    # r2_adjusted = 1 - (1 - r2) * (n - 1) / (n - p - 1)
-    # print(f'Adjusted R-squared: {r2_adjusted}\n')
-
-    # # 确定误差阈值（百分比）
-    # error_threshold = 100  # 设定一个阈值，例如10%
-    #
-    # # 计算每个点的误差（百分比）并记录大误差的点
-    # large_errors = []
-    # for i, (real, pred) in enumerate(zip(y_test, y_pred)):
-    #     if real != 0:  # 防止除以零
-    #         error = ((pred - real) / real) * 100
-    #         if error > error_threshold:
-    #             large_errors.append((i, real, pred, error))
-
-    # # 输出大误差点的信息
-    # if large_errors:
-    #     print(f'Large errors in model {model.__class__.__name__}:')
-    #     for idx, real, pred, error in large_errors:
-    #         print(f'Index: {idx}, Real: {real}, Predicted: {pred}, Error: {error}%')
-    # else:
-    #     print(f'No large errors in model {model.__class__.__name__}')
-
 
 # List of models to train
 models = [
     LinearRegression(),
     Ridge(),
-    SVR(),
+    # SVR(),
     DecisionTreeRegressor(),
     RandomForestRegressor(),
     GradientBoostingRegressor(),
     ExtraTreesRegressor(),
     AdaBoostRegressor(base_estimator=DecisionTreeRegressor())
 ]
+
+model_names = {
+    'LinearRegression': 'LR',
+    'Ridge': 'Ridge',
+    'SVR': 'SVR',
+    'DecisionTreeRegressor': 'DTR',
+    'RandomForestRegressor': 'RFR',
+    'GradientBoostingRegressor': 'GBR',
+    'ExtraTreesRegressor': 'ETR',
+    'AdaBoostRegressor': 'AdaBoost'
+}
 
 # Train and evaluate each model
 for model in models:
@@ -102,3 +94,33 @@ model.fit(X, y)
 feature_importances = pd.DataFrame(model.feature_importances_, index=column_names, columns=['Importance']).sort_values(
     'Importance', ascending=False)
 print(feature_importances)
+
+
+def plot_model_performance(model_performance):
+    labels = list(model_performance.keys())
+    mse_values = [model_performance[model]['MSE'] for model in labels]
+    mae_values = [model_performance[model]['MAE'] for model in labels]
+    r2_values = [model_performance[model]['R2'] for model in labels]
+
+    x = np.arange(len(labels))  # the label locations
+    width = 0.2  # the width of the bars
+
+    fig, ax = plt.subplots(figsize=(15, 6))
+    rects1 = ax.bar(x - width, mse_values, width, label='MSE')
+    rects2 = ax.bar(x, mae_values, width, label='MAE')
+    rects3 = ax.bar(x + width, r2_values, width, label='R2')
+
+    # Add some text for labels, title and custom x-axis tick labels, etc.
+    ax.set_xlabel('Models')
+    ax.set_ylabel('Scores')
+    ax.set_title('Model Performance Comparison')
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.legend()
+
+    fig.tight_layout()
+
+    plt.savefig(f'../data_analyse/pic/{time}_model_performance.png')
+
+
+plot_model_performance(model_performance)
