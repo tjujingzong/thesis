@@ -1,14 +1,14 @@
-# started on Fri Jan 26 01:29:10 2024
+# started on Thu Feb  1 18:53:24 2024
 
-24016.51,msec,cpu-clock,24016391598,100.00,4.001,CPUs utilized
-152838,,context-switches,24016189149,100.00,6.364,K/sec
-484,,cpu-migrations,24016180749,100.00,20.153,/sec
-498560,,page-faults,24016174104,100.00,20.759,K/sec
-40016761837,,cycles,16011037319,66.00,1.666,GHz
-45556983228,,instructions,20020148631,83.00,1.14,insn per cycle
-5373332813,,branches,20009603136,83.00,223.735,M/sec
-40463185,,branch-misses,20023387467,83.00,0.75,of all branches
-9008083762,,L1-dcache-loads,20011585916,83.00,375.079,M/sec
-486582969,,L1-dcache-load-misses,20008379140,83.00,5.40,of all L1-dcache accesses
+24022.25,msec,cpu-clock,24022069575,100.00,4.000,CPUs utilized
+121241,,context-switches,24022053795,100.00,5.047,K/sec
+806,,cpu-migrations,24022040282,100.00,33.552,/sec
+615320,,page-faults,24022028668,100.00,25.615,K/sec
+38944276023,,cycles,16005365488,66.00,1.621,GHz
+37808769359,,instructions,20012437485,83.00,0.97,insn per cycle
+5055423872,,branches,20033542895,83.00,210.448,M/sec
+48460994,,branch-misses,20011044449,83.00,0.96,of all branches
+8380791179,,L1-dcache-loads,20026651340,83.00,348.876,M/sec
+510460879,,L1-dcache-load-misses,20010522651,83.00,6.09,of all L1-dcache accesses
 <not supported>,,LLC-loads,0,100.00,,
 <not supported>,,LLC-load-misses,0,100.00,,

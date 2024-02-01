@@ -22,19 +22,43 @@ vmstate="$dir/$current_datetime-tomcat_vmstate.txt"
 
 echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/perf stat" | sudo tee /etc/sudoers.d/perf_stat_nopass
 calculate_average_latency() {
-    total_latency=0
 
-    # 对于每一秒，执行一次 curl 请求并累加响应时间
-    for i in $(seq 1 $monitor_duration); do
-        latency=$(curl -o /dev/null -s -w "%{time_total}" http://localhost:8080/your_tomcat_endpoint)
-        total_latency=$(echo "$total_latency + $latency" | bc)
-        sleep 1
+    #Tomcat 服务器的 URL
+    URL="http://localhost:8080"
+
+    # 设置总运行时间限制（6秒）
+    TIME_LIMIT=$monitor_duration
+
+    # 初始化总延迟变量
+    total_delay=0
+    count=0
+
+    # 记录脚本开始时间
+    start_time=$(date +%s)
+
+    while :; do
+        # 检查是否已超过时间限制
+        current_time=$(date +%s)
+        if ((current_time - start_time >= TIME_LIMIT)); then
+            break
+        fi
+
+        # 发送请求并记录时间
+        start=$(date +%s.%N)
+        curl -o /dev/null -s $URL
+        end=$(date +%s.%N)
+
+        # 计算延迟
+        delay=$(echo "$end - $start" | bc)
+        total_delay=$(echo "$total_delay + $delay" | bc)
+
+        # 计数请求次数
+        count=$((count + 1))
     done
-
-    # 计算平均延迟
-    avg_latency=$(echo "scale=5; $total_latency / $monitor_duration" | bc)
-    echo "$avg_latency" >"tomcat_response_time.txt"
+    average_delay=$(echo "$total_delay / $count*1000" | bc -l)
+    echo "$average_delay" >"tomcat_response_time.txt"
 }
+
 monitor_performance() {
     sleep 3
     # 替换为监控 Tomcat 性能的命令
