@@ -33,7 +33,7 @@ def publish_message_with_timeout(timeout=6):
 
 # 测试发送消息并记录平均延时
 average_delay = publish_message_with_timeout()
-print(f"Average delay over 6 seconds: {average_delay}")
+print(f"{average_delay*1000:.6f}")
 
 
 # 接收消息的部分保持不变
