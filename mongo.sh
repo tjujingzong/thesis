@@ -2,16 +2,16 @@
 
 # 定义测试参数
 memory_levels=()
-# for ((mem = 7168; mem >= 5632; mem -= 256)); do
-#     memory_levels+=("${mem}M")
-# done
+for ((mem = 7168; mem >= 5632; mem -= 256)); do
+    memory_levels+=("${mem}M")
+done
 
-# cpu_levels=(50 30 10 0)
-# io_levels=(30 20 10 1)
+cpu_levels=(50 30 10 0)
+io_levels=(30 20 10 1)
 
-memory_levels+=("4k")
-cpu_levels=(100)
-io_levels=(100)
+# memory_levels+=("4k")
+# cpu_levels=(100)
+# io_levels=(100)
 benchmark_duration="200"
 monitor_duration="6" # 监控时长短于压力测试时长
 dir="results_mongo"
