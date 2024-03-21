@@ -2,7 +2,7 @@
 
 # 定义测试参数
 memory_levels=()
-for ((mem = 7168; mem >= 5632; mem -= 256)); do
+for ((mem = 7168; mem > 0; mem -= 256)); do
     memory_levels+=("${mem}M")
 done
 
