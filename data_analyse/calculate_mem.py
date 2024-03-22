@@ -2,7 +2,7 @@ import pandas as pd
 
 
 # Converting the string data to a dataframe
-df = pd.read_csv('../data_analyse/data_result/all_data-3.csv')
+df = pd.read_csv('data_result/redis-all_data-3.csv')
 
 # Columns to convert to percentages
 columns_to_convert = ['Swap Space', 'Idle Memory', 'Buffer', 'Cache']

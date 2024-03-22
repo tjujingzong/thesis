@@ -11,17 +11,17 @@ import matplotlib.pyplot as plt
 # Load data
 from sklearn.tree import DecisionTreeRegressor
 
-time = "all_data.csv"
-df = pd.read_csv('../data_analyse/data_result/redis-tomcat.csv')
+time = "00-all_data"
+df = pd.read_csv('../data_analyse/data_result/00-all_data.csv')
 
 # Preprocess data
 
 # Split the data into features and target
-X = df.drop('avg-latency', axis=1)
+X = df.drop('avg-latency(ms)', axis=1)
 column_names = X.columns
 scaler = MinMaxScaler()
 X = scaler.fit_transform(X)
-y = df['avg-latency']
+y = df['avg-latency(ms)']
 
 # Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=27)
@@ -47,12 +47,13 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
 
     plt.figure(figsize=(10, 6))
     plt.scatter(y_test, y_pred, alpha=0.5)
-    plt.xlabel('True Value')
-    plt.ylabel('Predicted Value')
+    plt.xlabel('True Value(ms)')
+    plt.ylabel('Predicted Value(ms)')
     plt.title(f'{model.__class__.__name__}')
     plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red')
-    plt.xlim(0, 1)
-    plt.ylim(0, 1)
+
+    # plt.xlim(0, 1)
+    # plt.ylim(0, 1)
 
     filename = f'../data_analyse/pic/{time}_{model.__class__.__name__}.png'
     plt.savefig(filename)
@@ -94,6 +95,14 @@ model.fit(X, y)
 feature_importances = pd.DataFrame(model.feature_importances_, index=column_names, columns=['Importance']).sort_values(
     'Importance', ascending=False)
 print(feature_importances)
+# 将特征重要性可视化
+plt.figure(figsize=(10, 6))
+plt.barh(feature_importances.index, feature_importances['Importance'])
+plt.xlabel('Importance')
+plt.ylabel('Feature')
+plt.title('Feature Importance')
+plt.subplots_adjust(left=0.25)
+plt.savefig(f'../data_analyse/pic/{time}_feature_importance.png')
 
 
 def plot_model_performance(model_performance):
