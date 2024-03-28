@@ -19,7 +19,7 @@ cursor = cnx.cursor()
 # 确保表中至少有一条数据
 cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
 row_count = cursor.fetchone()[0]
-print(row_count)
+# print(row_count)
 if row_count == 0:
     cursor.execute(f"INSERT INTO {table_name} (name) VALUES ('test')")
     cnx.commit()
