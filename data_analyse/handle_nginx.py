@@ -4,11 +4,11 @@ import re
 import pandas as pd
 
 # 打开TXT文件并读取内容
-with open('../results_tomcat/202404031550-tomcat_lan.txt', 'r') as txt_file:
+with open('../results_nginx/202404021750-nginx_lan.txt', 'r') as txt_file:
     lines = txt_file.readlines()
 
 # 创建CSV文件并写入数据
-with open('../data_analyse/data_result/202404031550-tomcat_lan.csv', 'w', newline='') as csv_file:
+with open('../data_analyse/data_result/202404021750-nginx_lan.csv', 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file)
 
     # 添加列名
@@ -30,7 +30,7 @@ def read_file(file_name):
     return lines
 
 
-lines = read_file('../results_tomcat/202404031550-tomcat_sys.txt')
+lines = read_file('../results_nginx/202404021750-nginx_sys.txt')
 content = ''
 for i in range(1, len(lines)):
     content += lines[i]
@@ -42,9 +42,11 @@ df = pd.DataFrame(ipc)
 # 设置列名
 df.columns = ['ipc']
 
-context_switches_pattern = r'context-switches,.*?(\d+\.\d+),K/sec'
+context_switches_pattern = r'context-switches,.*?(\d+\.\d+),K/sec|context-switches,.*?(\d+\.\d+),/sec'
 context_switches = []
 context_switches = re.findall(context_switches_pattern, content)
+context_switches = [float(cs[0]) if cs[0] else float(cs[1]) / 1024 for cs in context_switches]
+print(context_switches)
 df['context_switches(K/sec)'] = context_switches
 
 cpu_migrations_pattern = r'cpu-migrations,.*?(\d+\.\d+),/sec'
@@ -81,7 +83,8 @@ L1_dcache_load_misses = re.findall(L1_dcache_load_misses_pattern, content)
 df['L1_dcache_load_misses(%)'] = L1_dcache_load_misses
 
 # 保存cpi 为csv文件
-df.to_csv("./data_result/202404031550-tomcat_sys.csv", index=False)
+df.to_csv("./data_result/202404021750-nginx_sys.csv", index=False)
+
 
 def read_file(file_name):
     f = open(file_name, 'r')
@@ -90,7 +93,7 @@ def read_file(file_name):
     return lines
 
 
-lines = read_file('../results_tomcat/202404031550-tomcat_vmstate.txt')
+lines = read_file('../results_nginx/202404021750-nginx_vmstate.txt')
 
 content = ''
 for i in range(1, len(lines)):
@@ -130,7 +133,7 @@ for line in lines:
         count = 0
 
 # 将平均值写入文件
-with open('../data_analyse/data_result/202404031550-tomcat_vmstate.csv', 'w') as f:
+with open('../data_analyse/data_result/202404021750-nginx_vmstate.csv', 'w') as f:
     f.write('\n'.join(averages))
 
 # Assuming the csv file has data in the same order as the vmstat command output
@@ -144,15 +147,15 @@ column_names_with_units = [
 ]
 
 # Reading the CSV file
-df1 = pd.read_csv('../data_analyse/data_result/202404031550-tomcat_vmstate.csv', names=column_names_with_units)
+df1 = pd.read_csv('../data_analyse/data_result/202404021750-nginx_vmstate.csv', names=column_names_with_units)
 
 # 保存
-df1.to_csv('../data_analyse/data_result/202404031550-tomcat_vmstate.csv', index=False)
+df1.to_csv('../data_analyse/data_result/202404021750-nginx_vmstate.csv', index=False)
 
 # 读取CSV文件
-df1 = pd.read_csv('../data_analyse/data_result/202404031550-tomcat_lan.csv')
-df2 = pd.read_csv('../data_analyse/data_result/202404031550-tomcat_sys.csv')
-df3 = pd.read_csv('../data_analyse/data_result/202404031550-tomcat_vmstate.csv')
+df1 = pd.read_csv('../data_analyse/data_result/202404021750-nginx_lan.csv')
+df2 = pd.read_csv('../data_analyse/data_result/202404021750-nginx_sys.csv')
+df3 = pd.read_csv('../data_analyse/data_result/202404021750-nginx_vmstate.csv')
 
 # df1仅保留avg-latency列
 df1 = df1[['avg-latency(ms)']]
@@ -160,4 +163,4 @@ df1 = df1[['avg-latency(ms)']]
 combined_df = pd.concat([df2, df3, df1], axis=1)
 
 # 将合并后的数据保存到新的CSV文件
-combined_df.to_csv('../data_analyse/data_result/202404031550-tomcat-all_data.csv', index=False)
+combined_df.to_csv('../data_analyse/data_result/202404021750-nginx-all_data.csv', index=False)

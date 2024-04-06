@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import sklearn
 from sklearn.model_selection import train_test_split, learning_curve
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, AdaBoostRegressor
@@ -7,10 +8,12 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
+from deepforest import CascadeForestRegressor
 
 # Load data
 from sklearn.tree import DecisionTreeRegressor
 
+print(sklearn.__version__)
 time = "00-all_data"
 df = pd.read_csv('../data_analyse/data_result/00-all_data.csv')
 
@@ -31,19 +34,23 @@ model_performance = {}
 # Function to train and evaluate models
 def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
+    y_pred = model.predict(X_test).ravel()
     mse = mean_squared_error(y_test, y_pred)
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
+
+    mape = np.mean(np.abs((y_test - y_pred) / y_test)) * 100
     model_performance[model_names[model.__class__.__name__]] = {
         'MSE': mse,
         'MAE': mae,
-        'R2': r2
+        'R2': r2,
+        "MAPE": mape
     }
     print(f'Model: {model.__class__.__name__}')
     print(f'Mean Squared Error: {mse}')
     print(f'Mean Absolute Error: {mae}')
-    print(f'R-squared: {r2}\n')
+    print(f'R-squared: {r2}')
+    print(f'Mean Absolute Percentage Error: {mape}\n')
 
     plt.figure(figsize=(10, 6))
     plt.scatter(y_test, y_pred, alpha=0.5)
@@ -52,8 +59,8 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     plt.title(f'{model.__class__.__name__}')
     plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red')
 
-    # plt.xlim(0, 1)
-    # plt.ylim(0, 1)
+    plt.xlim(0, 25)
+    plt.ylim(0, 25)
 
     filename = f'../data_analyse/pic/{time}_{model.__class__.__name__}.png'
     plt.savefig(filename)
@@ -61,14 +68,15 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
 
 # List of models to train
 models = [
-    LinearRegression(),
-    Ridge(),
-    # SVR(),
-    DecisionTreeRegressor(),
+    # LinearRegression(),
+    # Ridge(),
+    #  SVR(),
+    # DecisionTreeRegressor(),
+    # GradientBoostingRegressor(),
+    # ExtraTreesRegressor(),
     RandomForestRegressor(),
-    GradientBoostingRegressor(),
-    ExtraTreesRegressor(),
-    AdaBoostRegressor(base_estimator=DecisionTreeRegressor())
+    AdaBoostRegressor(base_estimator=DecisionTreeRegressor()),
+    CascadeForestRegressor()
 ]
 
 model_names = {
@@ -79,7 +87,8 @@ model_names = {
     'RandomForestRegressor': 'RFR',
     'GradientBoostingRegressor': 'GBR',
     'ExtraTreesRegressor': 'ETR',
-    'AdaBoostRegressor': 'AdaBoost'
+    'AdaBoostRegressor': 'AdaBoost',
+    'CascadeForestRegressor': "CFR"
 }
 
 # Train and evaluate each model
