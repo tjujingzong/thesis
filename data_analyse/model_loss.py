@@ -1,14 +1,12 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import sklearn
-from sklearn.model_selection import train_test_split, learning_curve
-from sklearn.linear_model import LinearRegression, Ridge, Lasso
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, AdaBoostRegressor
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.svm import SVR
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
-import matplotlib.pyplot as plt
 from deepforest import CascadeForestRegressor
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 
 # 打印scikit-learn的版本
@@ -71,7 +69,40 @@ def plot_learning_curves(model, X_train, y_train, X_test, y_test):
 models = [
     RandomForestRegressor(),
     AdaBoostRegressor(base_estimator=DecisionTreeRegressor()),
-    CascadeForestRegressor()
+    CascadeForestRegressor(),
+    RandomForestRegressor(
+        n_estimators=100,  # 从0.22版本开始默认值是100；在早期版本中，默认值是10
+        criterion='squared_error',
+        max_depth=None,
+        min_samples_split=2,
+        min_samples_leaf=1,
+        min_weight_fraction_leaf=0.0,
+        max_leaf_nodes=None,
+        min_impurity_decrease=0.0,
+        bootstrap=True,
+        oob_score=False,
+        n_jobs=None,
+        random_state=None,
+        verbose=0,
+        warm_start=False,
+        ccp_alpha=0.0,
+        max_samples=None
+    ),
+    AdaBoostRegressor(
+        base_estimator=DecisionTreeRegressor(),
+        n_estimators=50,
+        learning_rate=1.0,
+        loss='linear',
+        random_state=None
+    ),
+    CascadeForestRegressor(
+        n_estimators=2,
+        max_depth=None,
+        min_samples_leaf=1,
+        n_trees=100,  # 每个cascade layer的树的数量
+        n_jobs=-1,
+        random_state=None
+    )
 ]
 
 # 训练并评估每个模型，同时绘制学习曲线
