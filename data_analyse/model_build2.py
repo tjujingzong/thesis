@@ -1,3 +1,5 @@
+import warnings
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -8,11 +10,9 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
-# 打印scikit-learn的版本
-print(sklearn.__version__)
-time = "00-all_data"
-df = pd.read_csv('../data_analyse/data_result/00-all_data.csv')
+df = pd.read_csv('../data_analyse/data_result/02-all_data.csv')
 
 # 分离特征和目标变量
 X = df.drop('avg-latency(ms)', axis=1)
@@ -36,10 +36,10 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
 
     mape = np.mean(np.abs((y_test - y_pred) / y_test)) * 100
 
-    print(f'R2: {r2:.5f}')
-    print(f'MSE: {mse:.5f}')
-    print(f'MAE: {mae:.5f}')
-    print(f'MAPE: {mape:.5f}\n')
+    print(f'R2: {r2:.4f}')
+    print(f'MSE: {mse:.4f}')
+    print(f'MAE: {mae:.4f}')
+    print(f'MAPE: {mape:.4f}\n')
 
 
 # 绘制学习曲线
@@ -67,9 +67,9 @@ def plot_learning_curves(model, X_train, y_train, X_test, y_test):
 
 # 定义模型列表
 models = [
-    RandomForestRegressor(),
-    AdaBoostRegressor(base_estimator=DecisionTreeRegressor()),
-    CascadeForestRegressor(),
+    # RandomForestRegressor(),
+    # AdaBoostRegressor(base_estimator=DecisionTreeRegressor()),
+    # CascadeForestRegressor(),
     RandomForestRegressor(
         n_estimators=100,  # 从0.22版本开始默认值是100；在早期版本中，默认值是10
         criterion='squared_error',

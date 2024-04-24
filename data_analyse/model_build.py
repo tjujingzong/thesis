@@ -1,3 +1,5 @@
+import warnings
+
 import numpy as np
 import pandas as pd
 import sklearn
@@ -10,7 +12,7 @@ from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 from deepforest import CascadeForestRegressor
-
+warnings.simplefilter(action='ignore', category=FutureWarning)
 # Load data
 from sklearn.tree import DecisionTreeRegressor
 
