@@ -3,13 +3,13 @@ import warnings
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import sklearn
 from deepforest import CascadeForestRegressor
 from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 df = pd.read_csv('../data_analyse/data_result/02-all_data.csv')

@@ -1,10 +1,9 @@
 import warnings
-
 import numpy as np
 import pandas as pd
 import sklearn
 from sklearn.model_selection import train_test_split, learning_curve
-from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, LogisticRegression
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, AdaBoostRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -12,13 +11,15 @@ from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 from deepforest import CascadeForestRegressor
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 # Load data
 from sklearn.tree import DecisionTreeRegressor
 
 print(sklearn.__version__)
-time = "00-all_data"
-df = pd.read_csv('../data_analyse/data_result/00-all_data.csv')
+print(np.__version__)
+time = "02-all_data"
+df = pd.read_csv('../data_analyse/data_result/02-all_data.csv')
 
 # Preprocess data
 
@@ -57,11 +58,20 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     print(f'MAE: {mae:.5f}')
     print(f'MAPE: {mape:.5f}\n')
 
+    model_name = model.__class__.__name__
+    if model_name == 'DecisionTreeRegressor':
+        model_name = 'DecisionTree'
+    elif model_name == 'RandomForestRegressor':
+        model_name = 'RandomForest'
+    elif model_name == 'CascadeForestRegressor':
+        model_name = 'DeepForest'
+    elif model_name == 'AdaBoostRegressor':
+        model_name = 'AdaBoost'
     plt.figure(figsize=(10, 6))
     plt.scatter(y_test, y_pred, alpha=0.5)
     plt.xlabel('True Value(ms)')
     plt.ylabel('Predicted Value(ms)')
-    plt.title(f'{model.__class__.__name__}')
+    plt.title(f'{model_name}')
     plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red')
 
     plt.xlim(0, 25)
@@ -76,14 +86,12 @@ models = [
     LinearRegression(),
     SVR(),
     KNeighborsRegressor(),
-    DecisionTreeRegressor(),
-
+    DecisionTreeRegressor(max_depth=5, min_samples_split=5),
     # GradientBoostingRegressor(),
     # ExtraTreesRegressor(),
-
-    # RandomForestRegressor(),
-    # AdaBoostRegressor(base_estimator=DecisionTreeRegressor()),
-    # CascadeForestRegressor()
+    RandomForestRegressor(max_depth=5, n_estimators=30),
+    CascadeForestRegressor(),
+    AdaBoostRegressor(base_estimator=DecisionTreeRegressor(), random_state=42),
 ]
 
 model_names = {
@@ -91,12 +99,12 @@ model_names = {
     'Ridge': 'Ridge',
     'SVR': 'SVR',
     'KNeighborsRegressor': 'KNN',
-    'DecisionTreeRegressor': 'DTR',
-    'RandomForestRegressor': 'RFR',
+    'DecisionTreeRegressor': 'DT',
+    'RandomForestRegressor': 'RF',
     'GradientBoostingRegressor': 'GBR',
     'ExtraTreesRegressor': 'ETR',
     'AdaBoostRegressor': 'AdaBoost',
-    'CascadeForestRegressor': "CFR"
+    'CascadeForestRegressor': "DF"
 }
 
 # Train and evaluate each model
@@ -120,6 +128,7 @@ def plot_importances():
     plt.title('Feature Importance')
     plt.subplots_adjust(left=0.25)
     plt.savefig(f'../data_analyse/pic/{time}_feature_importance.png')
+# plot_importances()
 
 
 def plot_model_performance(model_performance):
@@ -130,7 +139,7 @@ def plot_model_performance(model_performance):
     mape_values = [model_performance[model]['MAPE'] for model in labels]
 
     x = np.arange(len(labels))  # the label locations
-    width = 0.1  # the width of the bars
+    width = 0.12  # the width of the bars
 
     fig, ax = plt.subplots(figsize=(12, 6))  # 宽度是15英寸，高度是6英寸。
     rects1 = ax.bar(x - 1.5 * width, mse_values, width, label='MSE')
