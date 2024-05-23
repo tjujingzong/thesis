@@ -6,7 +6,8 @@ from sklearn.model_selection import train_test_split, learning_curve
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, LogisticRegression
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor, AdaBoostRegressor
 from sklearn.neighbors import KNeighborsRegressor
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, PolynomialFeatures
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
@@ -44,7 +45,6 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
     mape = np.mean(np.abs((y_test - y_pred) / y_test))
-
     model_performance[model_names[model.__class__.__name__]] = {
         'R2': r2,
         'MSE': mse,
@@ -53,10 +53,10 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
     }
 
     print(f'Model: {model.__class__.__name__}')
-    print(f'R2: {r2:.5f}')
-    print(f'MSE: {mse:.5f}')
-    print(f'MAE: {mae:.5f}')
-    print(f'MAPE: {mape:.5f}\n')
+    print(f'R2: {r2:.3f}')
+    print(f'MSE: {mse:.3f}')
+    print(f'MAE: {mae:.3f}')
+    print(f'MAPE: {mape * 100:.3f}\n')
 
     model_name = model.__class__.__name__
     if model_name == 'DecisionTreeRegressor':
@@ -67,15 +67,15 @@ def train_and_evaluate_model(model, X_train, y_train, X_test, y_test):
         model_name = 'DeepForest'
     elif model_name == 'AdaBoostRegressor':
         model_name = 'AdaBoost'
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 10))
     plt.scatter(y_test, y_pred, alpha=0.5)
-    plt.xlabel('True Value(ms)')
-    plt.ylabel('Predicted Value(ms)')
-    plt.title(f'{model_name}')
-    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red')
+    plt.xlabel('True Value(ms)', fontsize=14)  # 设置字号为14
+    plt.ylabel('Predicted Value(ms)', fontsize=14)  # 设置字号为14
+    plt.title(f'{model_name}', fontsize=14)
+    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], color='red', linestyle='--')
 
-    plt.xlim(0, 25)
-    plt.ylim(0, 25)
+    plt.xlim(0, 20)
+    plt.ylim(0, 20)
 
     filename = f'../data_analyse/pic/{time}_{model.__class__.__name__}.png'
     plt.savefig(filename)
@@ -86,13 +86,25 @@ models = [
     LinearRegression(),
     SVR(),
     KNeighborsRegressor(),
-    DecisionTreeRegressor(max_depth=5, min_samples_split=5),
-    # GradientBoostingRegressor(),
-    # ExtraTreesRegressor(),
-    RandomForestRegressor(max_depth=5, n_estimators=30),
-    CascadeForestRegressor(),
-    AdaBoostRegressor(base_estimator=DecisionTreeRegressor(), random_state=42),
+    DecisionTreeRegressor(max_depth=4),
+
+    RandomForestRegressor(max_depth=5, n_estimators=50),
+    CascadeForestRegressor(n_estimators=2,
+                           n_trees=50,
+                           min_samples_split=2,
+                           min_samples_leaf=2,
+                           random_state=43),
+    AdaBoostRegressor(base_estimator=DecisionTreeRegressor(min_samples_split=2,
+                                                           min_samples_leaf=6),
+                      n_estimators=50,
+                      learning_rate=0.98,
+                      loss='linear', random_state=42),
+    GradientBoostingRegressor(),
+    ExtraTreesRegressor(),
 ]
+# polynomial_regression = make_pipeline(PolynomialFeatures(degree=5
+#                                                          ), LinearRegression())
+# models.append(polynomial_regression)
 
 model_names = {
     'LinearRegression': 'LR',
@@ -104,7 +116,8 @@ model_names = {
     'GradientBoostingRegressor': 'GBR',
     'ExtraTreesRegressor': 'ETR',
     'AdaBoostRegressor': 'AdaBoost',
-    'CascadeForestRegressor': "DF"
+    'CascadeForestRegressor': "DF",
+    'Pipeline': 'Poly'
 }
 
 # Train and evaluate each model
@@ -121,13 +134,15 @@ def plot_importances():
         'Importance', ascending=False)
     print(feature_importances)
     # 将特征重要性可视化
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 7))
     plt.barh(feature_importances.index, feature_importances['Importance'])
     plt.xlabel('Importance')
     plt.ylabel('Feature')
     plt.title('Feature Importance')
     plt.subplots_adjust(left=0.25)
     plt.savefig(f'../data_analyse/pic/{time}_feature_importance.png')
+
+
 # plot_importances()
 
 
@@ -141,16 +156,16 @@ def plot_model_performance(model_performance):
     x = np.arange(len(labels))  # the label locations
     width = 0.12  # the width of the bars
 
-    fig, ax = plt.subplots(figsize=(12, 6))  # 宽度是15英寸，高度是6英寸。
+    fig, ax = plt.subplots(figsize=(12, 8))  # 宽度是15英寸，高度是6英寸。
     rects1 = ax.bar(x - 1.5 * width, mse_values, width, label='MSE')
     rects2 = ax.bar(x - 0.5 * width, mae_values, width, label='MAE')
     rects3 = ax.bar(x + 0.5 * width, mape_values, width, label='MAPE')
     rects4 = ax.bar(x + 1.5 * width, r2_values, width, label='R2')
 
     # Add some text for labels, title and custom x-axis tick labels, etc.
-    ax.set_xlabel('Models')
-    ax.set_ylabel('Scores')
-    ax.set_title('Model Performance Comparison')
+    ax.set_xlabel('Models', fontsize=16)
+    ax.set_ylabel('Scores', fontsize=16)
+    ax.set_title('Model Performance Comparison', fontsize=16)
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
     ax.legend()

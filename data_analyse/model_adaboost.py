@@ -4,7 +4,7 @@ from sklearn.ensemble import AdaBoostRegressor
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import GridSearchCV, train_test_split
 
 # 忽略特定的 FutureWarning
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -22,21 +22,10 @@ X = scaler.fit_transform(X)
 # 创建 AdaBoostRegressor 模型实例
 model = AdaBoostRegressor(base_estimator=DecisionTreeRegressor())
 
-# 定义要搜索的参数网格
-param_grid = {
-    # 'base_estimator__max_depth': [1, 2, 3, 4, 5],
-    'n_estimators': [50, 100, 150],
-    'learning_rate': [0.01, 0.05, 0.1, 0.2, 0.3, 0.5, 1.0, 1.5, 2.0],
-    # 'loss': ['linear', 'square', 'exponential']
-    'loss': ['linear']
-}
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=27)
 
-# 创建 GridSearchCV 对象，整个数据集用于搜索和交叉验证
-grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=5, scoring='neg_mean_squared_error')
+# 训练
+model.fit(X_train, y_train)
 
-# 拟合 GridSearchCV
-grid_search.fit(X, y)
-
-# 打印最优参数和最优分数
-print("最佳参数：", grid_search.best_params_)
-print("最佳分数：", grid_search.best_score_)
+#输出模型参数
+print(model.get_params())
